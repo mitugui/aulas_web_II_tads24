@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id()->autoIncrement();
             $table->string('nome');
             $table->integer('idade');
+            $table->string('cpf');
             $table->softDeletes();
             $table->timestamps();
         });
