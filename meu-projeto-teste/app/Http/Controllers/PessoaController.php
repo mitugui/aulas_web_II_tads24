@@ -21,7 +21,7 @@ class PessoaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pessoas.create');
     }
 
     /**
@@ -29,7 +29,25 @@ class PessoaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Pessoa::create([
+        //    'nome' => $request->nome,
+        //    'idade' => $request->idade,
+        //    'cpf' => $request->cpf,
+        //])
+
+
+        $nome = $request->nome;
+        $idade = $request->idade;
+        $cpf = $request->cpf;
+
+        $pessoa = new Pessoa();
+        $pessoa->nome = $nome;
+        $pessoa->idade = $idade;
+        $pessoa->cpf = $cpf;
+
+        $pessoa->save();
+
+        return redirect()->route('pessoas.index')->with('sucess', 'Pessoa adicionada');
     }
 
     /**
