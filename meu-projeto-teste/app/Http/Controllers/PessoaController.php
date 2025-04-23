@@ -71,7 +71,19 @@ class PessoaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $pessoa = Pessoa::find($id);
+
+        if (isset($pessoa)) {
+            $pessoa->nome = $request->nome;
+            $pessoa->idade = $request->idade;
+            $pessoa->cpf = $request->cpf;
+
+            $pessoa->save();
+
+            return redirect()->route('pessoas.index');
+        }
+
+        return '<h1>Não foi possível atualizar!</h1>';
     }
 
     /**
@@ -79,6 +91,12 @@ class PessoaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $pessoa = Pessoa::find($id);
+
+        if (isset($pessoa)) {
+            $pessoa->delete();
+        }
+
+        return '<h1>Registro excluído!</h1>'; 
     }
 }
