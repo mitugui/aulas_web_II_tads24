@@ -10,7 +10,7 @@ class NivelController extends Controller
     public function index()
     {
         $niveis = Nivel::all();
-        return view('niveis.index')->with(['niveis'=>$niveis]);
+        return view('niveis.index')->with(['niveis' => $niveis]);
     }
     
     public function create()
@@ -30,7 +30,8 @@ class NivelController extends Controller
     
     public function show(string $id)
     {
-        //
+        $nivel = Nivel::find($id);
+        return view('niveis.show')->with(['nivel' => $nivel]);
     }
     
     public function edit(string $id)
