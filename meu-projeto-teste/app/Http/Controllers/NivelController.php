@@ -21,11 +21,11 @@ class NivelController extends Controller
     public function store(Request $request)
     {
         $request->validate(
-            ['nome'=>'required|string|max:30']
+            ['nome'=>'required|string|min:3']
         );
 
         Nivel::create($request->all());
-        return redirect()->route('niveis.index')->with(['success'=>'Nivel']);
+        return redirect()->route('niveis.index')->with(['success'=>'Nivel '.$request->nome.' created successfully.']);
     }
     
     public function show(string $id)
@@ -45,6 +45,12 @@ class NivelController extends Controller
     
     public function destroy(string $id)
     {
-        //
+        $nivel = Nivel::find($id);
+
+        if (isset($nivel)) {
+            $nivel->delete();
+        }
+
+        return redirect()->route('niveis.index')->with(['success'=>'Nivel '.$nivel->nome.' deletado com sucesso']);
     }
 }
