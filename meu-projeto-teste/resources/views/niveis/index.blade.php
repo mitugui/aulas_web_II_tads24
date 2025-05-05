@@ -36,6 +36,14 @@
                 </td>
                 <td scope="col">
                     <form 
+                        action="{{ route('niveis.edit', $nivel->id) }}"
+                        method="GET"
+                    >
+                        <button type="submit" class="btn btn-light">Atualizar</i></button>
+                    </form>
+                </td>
+                <td scope="col">
+                    <form 
                         action="{{ route('niveis.destroy', $nivel->id) }}"
                         method="POST"
                         onsubmit="return confirm('Tem certeza que deseja excluir este nível?');"
