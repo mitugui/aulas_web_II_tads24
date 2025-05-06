@@ -15,16 +15,17 @@
      </div>
 @endif
 
-<form action="{{ route('niveis.update', $nivel, $nivel->id) }}" method="POST">
+<form action="{{ route('niveis.update', $nivel, $nivel->id) }}" method="POST" class="mb-2">
     @csrf
     @method('PUT')
     <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input type="text" class="form-control" id="nome" name="nome" value="{{ $nivel->nome }}" required>
     </div>
-
-    <button type="submit" class="btn btn-primary">Atualizar</button>
-    <button class="btn btn-primary" onclick="window.location.href='{{route('niveis.index')}}'">Voltar</button>
+    
+    <button class="btn btn-primary">Atualizar</button>
 </form>
+
+<button class="btn btn-primary" onclick="window.location.href='{{route('niveis.index')}}'">Voltar</button>
 
 @endsection
