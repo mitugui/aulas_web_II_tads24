@@ -8,7 +8,7 @@
 <a href="{{ route('niveis.create') }}" class="btn btn-primary">Adicionar</a>
 
 @if(session('success'))
-    <div class="alert alert-success">
+    <div id="alert-pop-up" class="alert alert-success my-3">
         {{ session('success') }}
     </div>
 @endif
