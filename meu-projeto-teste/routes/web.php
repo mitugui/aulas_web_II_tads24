@@ -3,6 +3,7 @@
 use App\Http\Controllers\NivelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PessoaController;
+use App\Http\Controllers\RelatorioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,5 @@ use App\Http\Controllers\PessoaController;
 // })->name('home');
 
 Route::resource('/niveis', NivelController::class);
+
+Route::get('/relatorio', [RelatorioController::class, 'emitirRelatorio'])->name('relatorio.emitir');
